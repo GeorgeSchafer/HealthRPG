@@ -1,0 +1,6 @@
+[submodule "public/javascripts/libs/EnumJS"]
+	path = public/javascripts/libs/EnumJS
+	url = https://github.com/GeorgeSchafer/EnumJS.git
+[submodule "sh"]
+	path = sh
+	url = https://github.com/GeorgeSchafer/KwikGit.git
