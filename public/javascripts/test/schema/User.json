@@ -1,0 +1,17 @@
+{
+    "id": {"type": "number"},
+    "birthdate": {"type": "number"},
+    "unit": {"type": "object"},
+    "weight": {
+        "starting": {"type": "number"},
+        "current": {"type": "number"},
+        "goal": {"type": "number"}
+    },
+    "heart_rate": {
+        "resting": {
+            "initial": {"type": "number"},
+            "current": {"type": "number"}
+        },
+        "zone": {"type": "object"}
+    }
+}

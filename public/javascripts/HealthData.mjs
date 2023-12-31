@@ -1,6 +1,5 @@
 import ExtEnum from './libs/EnumJS.mjs'
 
-
 const Zone = new ExtEnum()
 
 function getActivity() {

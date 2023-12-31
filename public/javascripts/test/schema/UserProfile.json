@@ -1,0 +1,19 @@
+{
+    "id": {"type": "number"},
+    "unit": {"type": "string"},
+    "birthdate": {
+        "y": {"type": "number"},
+        "m": {"type": "number"},
+        "d": {"type": "number"}
+    },
+    "weight": {
+        "starting": {"type": "number"},
+        "goal": {"type": "number"}
+    },
+    "heart_rate": {
+        "resting": {
+            "initial": {"type": "number"}
+        }
+    }
+}
+
