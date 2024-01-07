@@ -1,5 +1,5 @@
 'use strict'
-import { Enum, ExtEnum } from './libs/EnumJS/ENUM.mjs'
+import { default as Enum, ExtEnum } from './libs/EnumJS/ENUM.mjs'
 
 userProfile.heart_rate = heart_rate;
 
@@ -77,6 +77,15 @@ function calculateAge(birthday){ // birthday = Date(year, monthIndex, date)
     }
 }
 
+/**
+ * @function calculateHR
+ * @param {age}
+ *      age in years 
+ * @param {restingHR} 
+ *      resting heart rate 
+ * @returns {heart_rate}
+ *      Enum of target heart rate zones and resting heart rate data
+ */
 function calculateHR(age, restingHR){
     const maximum_heart_rate = 220 - age;
 
@@ -87,31 +96,31 @@ function calculateHR(age, restingHR){
 
     // Low Intensity (57%-63%)
     const low = {
-        floor: maximum_heart_rate * 57 / 100,
-        roof: maximum_heart_rate * 63 / 100,
+        floor: maximum_heart_rate * 50 / 100,
+        roof: maximum_heart_rate * 64 / 100,
     }
     
     // Moderate Intensity (64%-76%)
     const moderate = {
-        floor: maximum_heart_rate * 64 / 100,
-        roof: maximum_heart_rate * 76 / 100,
+        floor: maximum_heart_rate * 65 / 100,
+        roof: maximum_heart_rate * 79 / 100,
     }
 
     // Aerobic  Zone (70%-80%)
     const aerobic = {
-        floor: maximum_heart_rate * 70 / 100,
-        roof: maximum_heart_rate * 80 / 100,
+        floor: maximum_heart_rate * 80 / 100,
+        roof: maximum_heart_rate * 84 / 100,
     }
 
     // Vigorous Intensity (77%-95%)
     const vigorous = {
-        floor: maximum_heart_rate * 77 / 100,
-        roof: maximum_heart_rate * 95 / 100
+        floor: maximum_heart_rate * 85 / 100,
+        roof: maximum_heart_rate * 91 / 100
     }
 
     // Maximum Intensity (96%-100%)
     const max = {
-        floor: maximum_heart_rate * 96 / 100,
+        floor: maximum_heart_rate * 92 / 100,
         roof: maximum_heart_rate
     }
 

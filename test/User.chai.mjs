@@ -1,7 +1,7 @@
 'use strict'
-import Schema from '../libs/SchemaJS/Schema.mjs'
+import Schema from '../public/javascripts/libs/SchemaJS/Schema.mjs'
 import expect from 'chai'
-import { User, Unit } from '../User.mjs'
+import { User, Unit } from '../public/javascripts/User.mjs'
 import Ajv from 'ajv'
 
 const ajv = new Ajv(new UserSchema())
@@ -26,7 +26,7 @@ const user = {
 
 const lb = new Unit('imperial')
 const kg = new Unit('metric')
-const counter = 1;
+let counter = 1;
 
 const emmyProfile = {
     id: 0,
@@ -95,7 +95,7 @@ describe(`User Class`, () => {
     })
 })
 
-/**
+/*
 
 describe(``, () => {
     describe(``, () => {
