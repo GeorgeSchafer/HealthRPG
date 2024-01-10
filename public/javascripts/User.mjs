@@ -10,9 +10,9 @@ export class Unit extends Enum {
             'METRIC'  // Metric
         ])
 
-        if(unitStr.toLowerCase() === 'imperial'){
+        if(unitStr.toUpperCase() === 'IMPERIAL'){
             this.select('IMPERIAL')
-        } else if (unitStr.toLowerCase() === 'metric') {
+        } else if (unitStr.toUpperCase() === 'METRIC') {
             this.select('METRIC')
         } else {
             throw new InvalidUnitError(unitStr);
@@ -127,11 +127,11 @@ function calculateHR(age, restingHR){
     return {
         resting: resting,
         zone: new ExtEnum([
-            {low: low}, 
-            {moderate: moderate}, 
-            {aerobic: aerobic}, 
-            {vigorous: vigorous},
-            {max: max}
+            {'low': low}, 
+            {'moderate': moderate}, 
+            {'aerobic': aerobic}, 
+            {'vigorous': vigorous},
+            {'max': max}
         ])
     }
 }
