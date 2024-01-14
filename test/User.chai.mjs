@@ -1,8 +1,11 @@
 'use strict'
-import Schema from '../public/javascripts/libs/SchemaJS/Schema.mjs'
-import expect from 'chai'
-import { User, Unit } from '../public/javascripts/User.mjs'
+import { Schema } from '../public/javascripts/libs/SchemaJS/Schema.mjs'
+import { expect } from 'chai'
 import Ajv from 'ajv'
+import { 
+    User, 
+    Unit
+} from '../public/javascripts/User.mjs'
 
 const ajv = new Ajv(new UserSchema())
 
