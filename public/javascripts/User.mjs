@@ -3,30 +3,31 @@ import { default as Enum, ExtEnum } from './libs/EnumJS/ENUM.mjs'
 
 userProfile.heart_rate = heart_rate;
 
-export class Unit extends Enum {
-    constructor(unitStr){
-        super([
-            'IMPERIAL', // Imperial
-            'METRIC'  // Metric
-        ])
+// export class Unit extends Enum {
+//     constructor(unitStr){
+//         super([
+//             'IMPERIAL', // Imperial
+//             'METRIC'  // Metric
+//         ])
+//         if(unitStr.toUpperCase() === 'IMPERIAL'){
+//             this.select('IMPERIAL')
+//         } else if (unitStr.toUpperCase() === 'METRIC') {
+//             this.select('METRIC')
+//         } else {
+//             throw new InvalidUnitError(unitStr);
+//         }
+//     }
+// }
 
-        if(unitStr.toUpperCase() === 'IMPERIAL'){
-            this.select('IMPERIAL')
-        } else if (unitStr.toUpperCase() === 'METRIC') {
-            this.select('METRIC')
-        } else {
-            throw new InvalidUnitError(unitStr);
-        }
-    }
-}
+// class InvalidUnitError extends TypeError {
+//     constructor(unitStr){
+//         super(`"${unitStr}" invalid unit type; select either "imperial" or "metric".`)
+//     }
+// }
 
-class InvalidUnitError extends TypeError {
-    constructor(unitStr){
-        super(`"${unitStr}" invalid unit type; select either "imperial" or "metric".`)
-    }
-}
+const unit = new Enum(['IMPERIAL', 'METRIC'])
 
-export class User {
+class User {
     static id = this.userCount();
 
     /**
@@ -50,7 +51,7 @@ export class User {
             userProfile.birthdate.d
         )
 
-        this.unit = new Unit(userProfile.unit)
+        this.unit = unit
 
         this.weight = {
             initial: userProfile.weight.initial,
@@ -65,7 +66,8 @@ export class User {
     }
 }
 
-function calculateAge(birthday){ // birthday = Date(year, monthIndex, date)
+function calculateAge(birthday){
+    // birthday = new Date(year, monthIndex, date)
     const years = Date.getYear() - birthday.getYear()
     const month = Date.getMonth() - birthday.getMonth()
     const date  = Date.getDate() - birthday.getDate()
@@ -77,6 +79,7 @@ function calculateAge(birthday){ // birthday = Date(year, monthIndex, date)
     }
 }
 
+function calculateHR(age, restingHR){
 /**
  * @function calculateHR
  * @param {age}
@@ -86,7 +89,6 @@ function calculateAge(birthday){ // birthday = Date(year, monthIndex, date)
  * @returns {heart_rate}
  *      Enum of target heart rate zones and resting heart rate data
  */
-function calculateHR(age, restingHR){
     const maximum_heart_rate = 220 - age;
 
     const resting = {
@@ -136,3 +138,6 @@ function calculateHR(age, restingHR){
     }
 }
 
+export {
+    User
+}
