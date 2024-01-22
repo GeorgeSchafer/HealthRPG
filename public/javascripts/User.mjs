@@ -28,8 +28,6 @@ userProfile.heart_rate = heart_rate;
 const unit = new Enum(['IMPERIAL', 'METRIC'])
 
 class User {
-    static id = this.userCount();
-
     /**
      * @stub
      * @returns the number of users on the Users table/array
@@ -51,7 +49,8 @@ class User {
             userProfile.birthdate.d
         )
 
-        this.unit = unit
+        this.unit = new Unit()
+        this.unit.select(userProfile.unit)
 
         this.weight = {
             initial: userProfile.weight.initial,
